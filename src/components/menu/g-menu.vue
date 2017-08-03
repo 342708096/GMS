@@ -3,7 +3,7 @@
     <div class="logo"></div>
     <div class="account">
       <h5>admin</h5>
-      <p>[超级管理员]</p>
+      <p>【超级管理员】</p>
     </div>
     <ul>
       <li class="active">系统管理</li>
@@ -41,10 +41,12 @@ export default {
       width: 130px;
       height: 46px;
       margin: 25px auto;
-      background: url('~assets/ic_logo.png') center no-repeat;
+      background: url('~assets/ic_logo.png') center;
     }
     .account {
-      font-size: $fz-xs;
+      p {
+        font-size: $fz-xs;
+      }
       h5 {
         font-size: $fz-sm;
       }
