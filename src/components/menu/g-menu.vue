@@ -5,7 +5,7 @@
       <p>[超级管理员]</p>
     </div>
     <ul>
-      <li>系统管理</li>
+      <li class="active">系统管理</li>
       <li>用户管理</li>
       <li>视频直播</li>
       <li>视频点播</li>
@@ -45,7 +45,10 @@ export default {
       > li {
         @include vertical-align(60px);
         &.active {
-          background-color: $color-blue;
+          background: linear-gradient($color-dark-blue, $color-blue);
+          color: $font-color-dark-highlight;
+        }
+        &:hover {
           color: $font-color-dark-highlight;
         }
       }

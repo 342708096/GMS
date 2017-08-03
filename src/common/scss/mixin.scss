@@ -1,5 +1,5 @@
 
-@mixin vertical-align($height, $align:center) {
+@mixin vertical-align($height, $align:middle) {
   height: $height;
   vertical-align: $align;
   line-height: $height;
