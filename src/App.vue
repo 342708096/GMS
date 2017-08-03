@@ -1,7 +1,9 @@
 <template>
   <main>
     <g-menu></g-menu>
-    <router-view></router-view>
+    <div id="main">
+      <router-view></router-view>
+    </div>
   </main>
 </template>
 
@@ -14,3 +16,8 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss" rel="stylesheet/scss">
+  #main {
+    margin-left: 194px;
+  }
+</style>

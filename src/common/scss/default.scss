@@ -1,0 +1,23 @@
+@import "variable";
+
+input:focus {
+  outline: none;
+}
+
+a{
+  -webkit-backface-visibility: hidden;
+  text-decoration: none
+}
+
+a:link {color: inherit} /* 未访问的链接 */
+a:visited {color: inherit} /* 已访问的链接 */
+a:hover {color: inherit} /* 当有鼠标悬停在链接上 */
+a:active {color: inherit}
+
+
+body{
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: $color-background;
+  font: $fz-default 'Helvetica Neue',Helvetica,Arial,'Microsoft Yahei','Hiragino Sans GB','Heiti SC','WenQuanYi Micro Hei',sans-serif;
+}

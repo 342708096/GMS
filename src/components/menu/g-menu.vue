@@ -1,6 +1,7 @@
 <template>
   <menu>
-    <div id="account">
+    <div class="logo"></div>
+    <div class="account">
       <h5>admin</h5>
       <p>[超级管理员]</p>
     </div>
@@ -12,7 +13,7 @@
       <li>充值中心</li>
       <li>工单管理</li>
     </ul>
-    <div id="logout">
+    <div class="logout">
       退出账号
     </div>
   </menu>
@@ -31,11 +32,18 @@ export default {
     color: $font-color-fade;
     background-color: $color-background-d;
     text-align: center;
+    user-select: none;
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
-    #account {
+    .logo {
+      width: 130px;
+      height: 46px;
+      margin: 25px auto;
+      background: url('~assets/ic_logo.png') center no-repeat;
+    }
+    .account {
       font-size: $fz-xs;
       h5 {
         font-size: $fz-sm;
@@ -53,7 +61,7 @@ export default {
         }
       }
     }
-    #logout {
+    .logout {
       width: 100%;
       background-color: $color-363d47;
       position: absolute;
