@@ -6,12 +6,7 @@
       <p>【超级管理员】</p>
     </div>
     <ul>
-      <li class="active">系统管理</li>
-      <li>用户管理</li>
-      <li>视频直播</li>
-      <li>视频点播</li>
-      <li>充值中心</li>
-      <li>工单管理</li>
+      <router-link tag="li" v-for= "menu in menus" :key="menu.path" :to="menu.path" v-text="menu.meta.menu"></router-link>
     </ul>
     <div class="logout">
       退出账号
@@ -20,6 +15,12 @@
 </template>
 <script type="text/ecmascript-6">
 export default {
+  props: {
+    menus: {
+      type: Array,
+      default: []
+    }
+  }
 }
 </script>
 
@@ -53,6 +54,7 @@ export default {
     }
     > ul {
       > li {
+        cursor: pointer;
         @include vertical-align(60px);
         &.active {
           background: linear-gradient($color-dark-blue, $color-blue);
