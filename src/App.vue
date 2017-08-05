@@ -6,11 +6,9 @@
           <a class="breadcrumb-item" href="#">系统管理</a>
           <a class="breadcrumb-item active" href="#">企业管理</a>
       </nav>
-      <div class="raw">
-        <div class="content-main">
-          <router-view></router-view>
-        </div>
-      </div>
+      <transition enter-active-class="slideInRight animate-quickly" leave-active-class="slideOutRight animate-quickly" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
   </main>
 </template>

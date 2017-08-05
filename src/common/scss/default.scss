@@ -4,6 +4,11 @@ input:focus {
   outline: none;
 }
 
+.animate-quickly {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+}
+
 
 body{
   -webkit-text-size-adjust: none;

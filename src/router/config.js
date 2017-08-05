@@ -1,10 +1,11 @@
 import SystemManagement from '@/view/system-management'
+import UserManagement from '@/view/user-management'
 
 export default [
   {
     path: '/',
     name: 'home',
-    redirect: 'SystemManagement'
+    redirect: 'systemManagement'
   },
   {
     path: '/system-management',
@@ -17,7 +18,7 @@ export default [
   {
     path: '/user-management',
     name: 'userManagement',
-    component: SystemManagement,
+    component: UserManagement,
     meta: {
       menu: '用户管理'
     }
@@ -33,7 +34,7 @@ export default [
   {
     path: '/recharge-center',
     name: 'rechargeCenter',
-    component: SystemManagement,
+    component: UserManagement,
     meta: {
       menu: '充值中心'
     }

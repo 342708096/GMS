@@ -6,7 +6,7 @@
       <p>【超级管理员】</p>
     </div>
     <ul>
-      <router-link tag="li" v-for= "menu in menus" :key="menu.path" :to="menu.path" v-text="menu.meta.menu"></router-link>
+      <router-link tag="li" v-for= "menu in menus" :key="menu.path" v-once :to="menu.path" v-text="menu.meta.menu"></router-link>
     </ul>
     <div class="logout">
       退出账号
