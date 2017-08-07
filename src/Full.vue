@@ -11,8 +11,9 @@
           </transition>
         </div>
       </main>
-      <!--<AppAside/>-->
+      <AppAside/>
     </div>
+    <!--<AppFooter/>-->
   </div>
 </template>
 
