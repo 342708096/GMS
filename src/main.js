@@ -1,4 +1,4 @@
-import '@/common/scss/index.scss'
+import 'scss/style.scss'
 
 import Vue from 'vue'
 import App from './App'

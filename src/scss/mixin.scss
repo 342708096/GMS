@@ -1,0 +1,11 @@
+
+@mixin vertical-align($height, $align:middle) {
+  height: $height;
+  vertical-align: $align;
+  line-height: $height;
+}
+
+@mixin center-block {
+  margin-left: auto;
+  margin-right: auto;
+}

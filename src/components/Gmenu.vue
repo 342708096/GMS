@@ -6,7 +6,7 @@
       <p>【超级管理员】</p>
     </div>
     <ul>
-      <router-link tag="li" v-for= "menu in menus" :key="menu.path" v-once :to="menu.path" v-text="menu.meta.menu"></router-link>
+      <router-link tag="li" v-for= "menu in menus" :key="menu.path" v-once :to="{path: menu.path}" v-text="menu.meta.menu"></router-link>
     </ul>
     <div class="logout">
       退出账号
@@ -25,13 +25,12 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import '~scss/variable';
   @import '~scss/mixin';
 
   menu {
     width: 194px;
-    color: $font-color-fade;
-    background-color: $color-background-d;
+    color: #a4a9b6;
+    background-color: #32353a;
     text-align: center;
     user-select: none;
     position: fixed;
@@ -46,10 +45,10 @@ export default {
     }
     .account {
       p {
-        font-size: $fz-xs;
+        font-size: .85rem;
       }
       h5 {
-        font-size: $fz-sm;
+        font-size: .9rem;
       }
     }
     > ul {
@@ -57,17 +56,17 @@ export default {
         cursor: pointer;
         @include vertical-align(60px);
         &.active {
-          background: linear-gradient($color-dark-blue, $color-blue);
-          color: $font-color-dark-highlight;
+          background: linear-gradient(#3a66a3, #12b2fa);
+          color: #ffffff;
         }
         &:hover {
-          color: $font-color-dark-highlight;
+          color: #ffffff;
         }
       }
     }
     .logout {
       width: 100%;
-      background-color: $color-363d47;
+      background-color: #363d47;
       position: absolute;
       bottom: 0;
       @include vertical-align(60px);

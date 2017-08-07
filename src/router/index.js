@@ -5,7 +5,7 @@ import routes from './config'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   linkActiveClass: 'active',
   routes
 })
