@@ -5,7 +5,7 @@ export default [
   {
     path: '/',
     name: 'home',
-    redirect: 'systemManagement'
+    redirect: '/system-management'
   },
   {
     path: '/system-management',
