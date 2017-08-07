@@ -42,8 +42,13 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss" scoped>
+  @import "~scss/mixin";
+
   .nav-link {
     cursor:pointer;
+  }
+  .sidebar {
+    @include box-shadow(5px,0)
   }
 </style>

@@ -90,3 +90,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  @import '~scss/mixin';
+
+  header {
+    @include box-shadow
+  }
+</style>
