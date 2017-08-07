@@ -13,7 +13,7 @@
       </main>
       <AppAside/>
     </div>
-    <!--<AppFooter/>-->
+    <AppFooter/>
   </div>
 </template>
 
