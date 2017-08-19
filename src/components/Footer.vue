@@ -10,7 +10,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  @import "~scss/mixin";
+  @import "~scss/core/mixins";
 
   footer {
     @include box-shadow(0, -1px)

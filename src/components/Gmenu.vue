@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import '~scss/mixin';
+  @import '~scss/core/mixins';
 
   menu {
     width: 194px;

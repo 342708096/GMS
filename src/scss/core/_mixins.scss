@@ -114,3 +114,18 @@
   border-top-width: 2px;
   border-top-color: $color;
 }
+
+@mixin vertical-align($height, $align:middle) {
+  height: $height;
+  vertical-align: $align;
+  line-height: $height;
+}
+
+@mixin center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin box-shadow($x:0, $y:5px) {
+  box-shadow: rgba(0, 0, 0, 0.2) $x $y 15px;
+}

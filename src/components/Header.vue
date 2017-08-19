@@ -91,7 +91,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  @import '~scss/mixin';
+  @import '~scss/core/mixins';
 
   header {
     @include box-shadow
