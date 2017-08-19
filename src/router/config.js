@@ -2,6 +2,8 @@ import SystemManagement from '@/view/system-management'
 import UserManagement from '@/view/user-management'
 import Full from '@/Full'
 import App from '@/App'
+import Login from '@/Login'
+import Register from '@/Register'
 
 export default [
   {
@@ -88,5 +90,15 @@ export default [
         }
       }
     ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   }
 ]
