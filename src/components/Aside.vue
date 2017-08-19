@@ -88,6 +88,6 @@ export default {
   @import '~scss/core/mixins';
 
   aside {
-    @include box-shadow
+    @include box-shadow(-4px,0)
   }
 </style>

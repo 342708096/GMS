@@ -4,5 +4,7 @@
   line-height: $footer-height;
   color: $footer-color;
   background: $footer-bg;
+  opacity: .7;
+  z-index: -1;
   @include borders($footer-borders);
 }

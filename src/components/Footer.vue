@@ -9,10 +9,3 @@ export default {
   name: 'footer'
 }
 </script>
-<style lang="scss" scoped>
-  @import "~scss/core/mixins";
-
-  footer {
-    @include box-shadow(0, -1px)
-  }
-</style>

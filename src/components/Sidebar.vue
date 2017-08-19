@@ -50,6 +50,6 @@ export default {
     cursor:pointer;
   }
   .sidebar {
-    @include box-shadow(5px,0)
+    @include box-shadow(4px,0)
   }
 </style>

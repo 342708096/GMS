@@ -49,7 +49,7 @@ $navbar-border: (
 $navbar-brand-width:                250px;
 $navbar-brand-bg:                   $brand-primary;
 $navbar-brand-logo:                 url('../../static/img/ic_logo_02.png');
-$navbar-brand-logo-size:            100%;
+$navbar-brand-logo-size:            auto;
 $navbar-brand-border: (
     bottom: (
         size:                       0px,
@@ -154,7 +154,7 @@ $aside-menu-nav-padding-x:          1rem;
 // Footer
 
 $footer-height: 50px;
-$footer-bg:     $gray-lightest;
+$footer-bg:     $body-bg;
 $footer-color:  $body-color;
 $footer-borders: (
   top: (
