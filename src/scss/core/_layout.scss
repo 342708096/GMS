@@ -54,13 +54,17 @@ app-root {
 //
 .header-fixed {
   .app-header {
-    position: fixed;
+    position: sticky;
     z-index: $zindex-sticky;
     width: 100%;
+    top:0;
   }
-  .app-body {
-    margin-top: $navbar-height;
-  }
+  /**
+    使用 `sticky` 就不用预留 `margin`
+   */
+  //.app-body {
+  //  margin-top: $navbar-height;
+  //}
 }
 
 //

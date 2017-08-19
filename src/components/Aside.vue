@@ -84,3 +84,10 @@ export default {
   name: 'aside'
 }
 </script>
+<style lang="scss" scoped>
+  @import '~scss/core/mixins';
+
+  aside {
+    @include box-shadow
+  }
+</style>
