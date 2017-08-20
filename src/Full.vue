@@ -24,12 +24,28 @@
   import AppAside from './components/Aside'
   import AppFooter from './components/Footer'
   import Breadcrumb from './components/Breadcrumb'
+  import cookie from '@/js/cookie'
+  import {get} from '@/js/rest'
 
   export default {
     data () {
       return {
         menus: routes[0].children.filter((route) => route.meta && route.meta.menu)
       }
+    },
+    beforeCreate () {
+      const token = cookie.get('token')
+      if (!token) {
+        this.$router.replace('/login')
+        return
+      }
+      get('/api/user').then((res) => {
+        console.log(res)
+      },
+      () => {
+        cookie.remove('token')
+        this.$router.replace('/login')
+      })
     },
     computed: {
       breadcrumb () {

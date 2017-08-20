@@ -10,15 +10,15 @@
                 <p class="text-muted">登录账号</p>
                 <div class="input-group mb-3">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <input type="text" class="form-control" placeholder="手机号">
+                  <input type="text" class="form-control" placeholder="手机号" v-model.trim="phoneNum">
                 </div>
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <input type="password" class="form-control" placeholder="密码">
+                  <input type="password" class="form-control" placeholder="密码" v-model.trim="password">
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button type="button" class="btn btn-primary px-4">登录</button>
+                    <button type="button" class="btn btn-primary px-4" @click="login(phoneNum, password)">登录</button>
                   </div>
                   <div class="col-6 text-right">
                     <button type="button" class="btn btn-link px-0">忘记密码?</button>
@@ -43,7 +43,33 @@
 </template>
 
 <script>
+import rest, { encodeUrl } from '@/js/rest'
+import cookie from '@/js/cookie'
+import {Base64 as base64} from 'js-base64'
+
 export default {
-  name: 'Login'
+  name: 'Login',
+  data () {
+    return {
+      phoneNum: '',
+      password: ''
+    }
+  },
+  beforeCreate () {
+    const token = cookie.get('token')
+    if (token) {
+      this.$router.replace('/')
+    }
+  },
+  methods: {
+    login (phoneNum, password) {
+      return rest('post', encodeUrl`/api/login3/${phoneNum}/${base64.encode(password)}`).then(res => {
+        if (res.data && res.data.token) {
+          cookie.set('token', res.data.token, 24 * 30)
+          this.$router.push('/')
+        }
+      })
+    }
+  }
 }
 </script>
