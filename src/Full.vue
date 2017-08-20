@@ -39,7 +39,7 @@
         this.$router.replace('/login')
         return
       }
-      get('/api/user').then((res) => {
+      get('/api/user/').then((res) => {
         console.log(res)
       },
       () => {
