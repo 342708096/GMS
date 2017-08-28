@@ -10,8 +10,8 @@
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-phone"></i></span>
                 <input type="text" class="form-control" placeholder="手机号" v-model.trim="phoneNum">
-                <span class="input-group-btn"><button type="button" class="btn btn-primary" @click="getCode(phoneNum)">验证码</button></span>
-              </div>
+                <span class="input-group-btn"><send @send="getCode(phoneNum)"></send></span>
+            </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-addon"><i class="icon-key"></i></span>
@@ -51,9 +51,11 @@
 import rest, { encodeUrl} from '@/js/rest'
 import cookie from '@/js/cookie'
 import { Base64 as base64 } from 'js-base64'
+import Send from '@/components/SendCodeButton'
 
 export default {
   name: 'Register',
+  components: {Send},
   data () {
     return {
       phoneNum: '',
