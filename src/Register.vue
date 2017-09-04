@@ -67,7 +67,7 @@ export default {
   methods: {
     register (phoneNum, code, password) {
       password = base64.encode(password)
-      return rest('post', encodeUrl`/api/login/${phoneNum}/${code}`, null, password).then((response) => {
+      return rest('post', encodeUrl`/api/login/${phoneNum}/${code}`, null, {password}).then((response) => {
         response.data && cookie.set('token', response.data.token, 24 * 30)
         this.$router.push('/')
       })
