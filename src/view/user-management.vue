@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div class="card text-center">
+  <div class="card ">
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
@@ -54,13 +54,8 @@
 
     </div>
   </div>
-  <b-modal title="Modal title" size="lg" class="modal-info" v-model="show" @ok="save(userData.id)">
+  <b-modal :title="'ID: ' + userData.id" size="lg" class="modal-info" v-model="show" @ok="save(userData.id)">
     <div class="container-fluid">
-      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>ID</span></label>
-        <div class="col-sm-9"><input disabled :value="userData.id" placeholder="" class="form-control">
-
-        </div>
-      </div>
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>头像</span></label>
         <div class="col-sm-9"><input type="text" :value="userData.avatar" placeholder="" class="form-control">
 
@@ -71,16 +66,17 @@
 
         </div>
       </div>
-      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>介绍</span></label>
-        <div class="col-sm-9"><input type="text" v-model="userData.info" placeholder="" class="form-control">
-
-        </div>
-      </div>
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>权限</span></label>
         <div class="col-sm-9"><input type="number" :value="userData.priv" placeholder="" class="form-control">
 
         </div>
       </div>
+      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>介绍</span></label>
+        <div class="col-sm-9"><textarea v-model="userData.info" placeholder="" cols="20" rows="3" class="form-control"></textarea>
+
+        </div>
+      </div>
+
     </div>
   </b-modal>
   </div>
