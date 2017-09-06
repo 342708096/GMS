@@ -94,3 +94,10 @@
 :focus {
   outline: none;
 }
+
+a:focus, a:hover {
+  text-decoration: none;
+}
+.fade {
+  display: block;
+}

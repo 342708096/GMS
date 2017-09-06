@@ -5,6 +5,10 @@
 ## Build Setup
 
 ``` bash
+# install nrm (源管理器)
+npm install -g nrm
+# 使用淘宝源
+nrm use taobao
 # install dependencies
 npm install
 

@@ -7,10 +7,10 @@ function errHandle (data) {
   if (data.code && data.code !== '') {
     throw data
   }
-  return data
+  return data.data
 }
 
-export default function rest (method, url, params, data) {
+function rest (method, url, params, data) {
   return axios.request({
     url,
     method,
@@ -43,3 +43,11 @@ export function encodeUrl (tempArray, ...tempData) {
   }
   return result
 }
+
+rest.get = get
+rest.post = post
+rest.put = put
+rest.del = del
+rest.encodeUrl = encodeUrl
+
+export default rest
