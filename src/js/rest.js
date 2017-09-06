@@ -3,11 +3,11 @@ import cookie from './cookie'
 
 axios.defaults.baseURL = 'http://api.gvrcraft.com:8000'
 
-function errHandle (data) {
-  if (data.code && data.code !== '') {
-    throw data
+function errHandle (res) {
+  if (res.code && res.code !== '') {
+    throw res
   }
-  return data.data
+  return res
 }
 
 function rest (method, url, params, data) {

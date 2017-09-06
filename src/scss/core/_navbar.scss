@@ -21,6 +21,11 @@
     @include borders($navbar-brand-border);
   }
 
+  .navbar-toggler {
+    align-self: inherit;
+    color: $navbar-color;
+  }
+
   .navbar-nav {
     flex-direction: row;
     align-items: center;

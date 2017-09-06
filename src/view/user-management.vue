@@ -45,11 +45,12 @@
         <el-table-column
           label="操作"
           width="120">
-          <template scope="scope"><a href="javascript:void(0)" @click="onEdit(scope.row.id)"><i
+          <template scope="scope"><a href="javascript:void(0)" @click="onEdit(scope.row.id, scope.row)"><i
             class="icon-note icons"></i></a></template>
         </el-table-column>
       </el-table>
-
+      <b-pagination align="center" :total-rows="total" style="margin-top: 1rem" v-model="currentPage" :per-page="20">
+      </b-pagination>
 
     </div>
   </div>
@@ -66,7 +67,12 @@
         </div>
       </div>
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>昵称</span></label>
-        <div class="col-sm-9"><input type="text" :value="userData.nickname" placeholder="" class="form-control">
+        <div class="col-sm-9"><input type="text" v-model="userData.nickname" placeholder="" class="form-control">
+
+        </div>
+      </div>
+      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>介绍</span></label>
+        <div class="col-sm-9"><input type="text" v-model="userData.info" placeholder="" class="form-control">
 
         </div>
       </div>
@@ -85,10 +91,7 @@
   const url = '/api/user'
   export default {
     mounted () {
-      this.getUsers().then((data) => {
-        console.log(data)
-        this.tableData = data.users
-      })
+      this.getUsers()
     },
     data () {
       return {
@@ -96,19 +99,23 @@
         loading: false,
         tableData: [],
         multipleSelection: [],
-        userData: {}
+        userData: {},
+        curRow: {},
+        currentPage: 1,
+        total: 0
       }
     },
 
     methods: {
       save (id) {
-        return put(url + encodeUrl`/${id}`,
-          {info: this.userData.info, nickname: this.userData.nickname})
-          .then(() => { this.show = false }, () => { this.show = false })
+        let data = {info: this.userData.info, nickname: this.userData.nickname}
+        return put(url + encodeUrl`/${id}`, data)
+          .then(() => { Object.assign(this.curRow, data); this.show = false }, () => { this.show = false })
       },
-      onEdit (id) {
+      onEdit (id, row) {
         this.loading = true
-        return get(url + encodeUrl`/${id}`).then((data) => {
+        this.curRow = row
+        return get(url + encodeUrl`/${id}`).then(({data}) => {
           this.loading = false
           this.show = true
           this.userData = data
@@ -129,24 +136,17 @@
         }
         return null
       },
-      getUsers () {
+      getUsers (page = 1) {
         this.loading = true
-        return get('/api/users').then((res) => {
+        return get('/api/users', {page}).then(({data}) => {
           this.loading = false
-          return res
+          this.total = data.total
+          this.tableData = data.users
+          return data
         }, (res) => {
           this.loading = false
           return res
         })
-      },
-      toggleSelection (rows) {
-        if (rows) {
-          rows.forEach(row => {
-            this.$refs.multipleTable.toggleRowSelection(row)
-          })
-        } else {
-          this.$refs.multipleTable.clearSelection()
-        }
       },
       handleSelectionChange (val) {
         this.multipleSelection = val
