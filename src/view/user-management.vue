@@ -44,7 +44,7 @@
         </el-table-column>
         <el-table-column
           label="操作"
-          show-overflow-tooltip>
+          width="120">
           <template scope="scope"><a href="javascript:void(0)" @click="onEdit(scope.row.id)"><i
             class="icon-note icons"></i></a></template>
         </el-table-column>
@@ -55,22 +55,22 @@
   </div>
   <b-modal title="Modal title" size="lg" class="modal-info" v-model="show" @ok="save(userData.id)">
     <div class="container-fluid">
-      <div role="group" class="form-group row"><label class="col-form-label col-sm-3 text-right"><span>ID</span></label>
+      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>ID</span></label>
         <div class="col-sm-9"><input disabled :value="userData.id" placeholder="" class="form-control">
 
         </div>
       </div>
-      <div role="group" class="form-group row"><label class="col-form-label col-sm-3 text-right"><span>头像</span></label>
+      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>头像</span></label>
         <div class="col-sm-9"><input type="text" :value="userData.avatar" placeholder="" class="form-control">
 
         </div>
       </div>
-      <div role="group" class="form-group row"><label class="col-form-label col-sm-3 text-right"><span>昵称</span></label>
+      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>昵称</span></label>
         <div class="col-sm-9"><input type="text" :value="userData.nickname" placeholder="" class="form-control">
 
         </div>
       </div>
-      <div role="group" class="form-group row"><label class="col-form-label col-sm-3 text-right"><span>权限</span></label>
+      <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>权限</span></label>
         <div class="col-sm-9"><input type="number" :value="userData.priv" placeholder="" class="form-control">
 
         </div>
