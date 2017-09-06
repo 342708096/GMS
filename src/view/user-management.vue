@@ -55,7 +55,6 @@
     </div>
   </div>
   <b-modal :title="'ID: ' + userData.id" size="lg" class="modal-info" v-model="show" @ok="save(userData.id)">
-    <div class="container-fluid">
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>头像</span></label>
         <div class="col-sm-9"><input type="text" :value="userData.avatar" placeholder="" class="form-control">
 
@@ -76,8 +75,6 @@
 
         </div>
       </div>
-
-    </div>
   </b-modal>
   </div>
 </template>
