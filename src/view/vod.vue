@@ -53,7 +53,7 @@
 
       </div>
     </div>
-    <b-modal :title="'ID: ' + data.id || ''" size="lg" class="modal-info" v-model="show" @ok="save(data.id)">
+    <b-modal :title="'ID: ' + (data.id || '')" size="lg" class="modal-info" v-model="show" @ok="save(data.id)">
       <div role="group" v-if="!data.id" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>ID</span></label>
         <div class="col-sm-9"><input type="text" v-model="data.id" placeholder="" class="form-control">
 
