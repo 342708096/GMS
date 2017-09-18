@@ -1,5 +1,6 @@
 import SystemManagement from '@/view/system-management'
 import UserManagement from '@/view/user-management'
+import Vod from '@/view/vod'
 import Full from '@/Full'
 import App from '@/App'
 import Login from '@/Login'
@@ -69,6 +70,15 @@ export default [
         meta: {
           icon: 'icon-puzzle',
           menu: '视频直播'
+        }
+      },
+      {
+        path: 'video-vod',
+        name: 'videoVod',
+        component: Vod,
+        meta: {
+          icon: 'icon-puzzle',
+          menu: '视频录播'
         }
       },
       {
