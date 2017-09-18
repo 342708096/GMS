@@ -44,7 +44,7 @@
           <el-table-column
             label="操作"
             width="120">
-            <template scope="scope"><a href="javascript:void(0)" @click="onEdit(scope.row.id, scope.row)"><i
+            <template scope="scope"><a href="javascript:void(0)" @click="onEdit(scope.row.id)"><i
               class="icon-note icons"></i></a></template>
           </el-table-column>
         </el-table>
@@ -53,7 +53,12 @@
 
       </div>
     </div>
-    <b-modal :title="'ID: ' + data.id" size="lg" class="modal-info" v-model="show" @ok="save(data.id)">
+    <b-modal :title="'ID: ' + data.id || ''" size="lg" class="modal-info" v-model="show" @ok="save(data.id)">
+      <div role="group" v-if="!data.id" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>ID</span></label>
+        <div class="col-sm-9"><input type="text" v-model="data.id" placeholder="" class="form-control">
+
+        </div>
+      </div>
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>标题</span></label>
         <div class="col-sm-9"><input type="text" v-model="data.title" placeholder="" class="form-control">
 
@@ -104,7 +109,6 @@
         tableData: [],
         multipleSelection: [],
         data: {},
-        curRow: {},
         currentPage: 1,
         total: 0,
         url: null
@@ -119,11 +123,11 @@
           description: this.data.description,
           preview: this.data.preview}
         return put(url + encodeUrl`/${id}`, data)
-          .then(() => { Object.assign(this.curRow, data); this.show = false }, () => { this.show = false })
+          .then(() => { this.show = false }, () => { this.show = false })
+          .then(this.getVideos.bind(this))
       },
-      onEdit (id, row) {
+      onEdit (id) {
         this.loading = true
-        this.curRow = row
         return get(url + encodeUrl`/${id}`).then(({data}) => {
           this.loading = false
           this.show = true
@@ -132,7 +136,6 @@
       },
       onAdd () {
         this.show = true
-        this.curRow = {}
         this.data = {}
       },
       getVideos (page = 1) {
