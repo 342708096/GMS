@@ -5,10 +5,22 @@
         视频录播
       </div>
       <div class="card-block">
-        <b-button-group class="float-right" size="sm">
-          <b-button variant="success" @click="onAdd()">添加</b-button>
-          <b-button variant="danger">删除</b-button>
-        </b-button-group>
+        <div class="row" style="margin-bottom: 1rem">
+          <div class="col-sm-3 ">
+            <b-input-group  size="sm">
+              <b-form-input v-model="filter"></b-form-input>
+              <b-input-group-button slot="right">
+                <b-btn variant="info" @click="getVideos()">Search</b-btn>
+              </b-input-group-button>
+            </b-input-group>
+          </div>
+          <div class="col-sm-3 offset-sm-6 ">
+            <b-button-group class="float-right" size="sm">
+              <b-button variant="success" @click="onAdd()">添加</b-button>
+              <b-button variant="danger">删除</b-button>
+            </b-button-group>
+          </div>
+        </div>
         <el-table
           v-loading="loading"
           ref="multipleTable"
@@ -103,6 +115,7 @@
     },
     data () {
       return {
+        filter: null,
         preview: false,
         show: false,
         loading: false,
@@ -140,7 +153,7 @@
       },
       getVideos (page = 1) {
         this.loading = true
-        return get('/api/videos/all', {page}).then(({data}) => {
+        return get('/api/videos/all', {page, filter: this.filter}).then(({data}) => {
           this.loading = false
           this.total = data.total
           this.tableData = data.videos
