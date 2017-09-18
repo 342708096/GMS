@@ -11,7 +11,7 @@ export default [
     path: '/',
     name: 'home',
     component: Full,
-    redirect: '/system-management',
+    redirect: '/video-vod',
     meta: {
       menu: 'home'
     },

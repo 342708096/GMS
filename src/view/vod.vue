@@ -2,17 +2,7 @@
   <div>
     <div class="card ">
       <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">企业管理</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">用户认证</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">企业用户</a>
-          </li>
-        </ul>
+        视频录播
       </div>
       <div class="card-block">
         <b-button-group class="float-right" size="sm">
@@ -65,7 +55,7 @@
     </div>
     <b-modal :title="'ID: ' + data.id" size="lg" class="modal-info" v-model="show" @ok="save(data.id)">
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>标题</span></label>
-        <div class="col-sm-9"><input type="text" :value="data.title" placeholder="" class="form-control">
+        <div class="col-sm-9"><input type="text" v-model="data.title" placeholder="" class="form-control">
 
         </div>
       </div>
@@ -78,12 +68,12 @@
         </div>
       </div>
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>链接(URL)</span></label>
-        <div class="col-sm-9"><input type="url" :value="data.url" placeholder="" class="form-control">
+        <div class="col-sm-9"><input type="url" v-model="data.url" placeholder="" class="form-control">
 
         </div>
       </div>
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>预览(URL)</span></label>
-        <div class="col-sm-9"><input type="url" :value="data.preview" placeholder="" class="form-control">
+        <div class="col-sm-9"><input type="url" v-model="data.preview" placeholder="" class="form-control">
 
         </div>
       </div>
