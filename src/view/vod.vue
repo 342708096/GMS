@@ -17,7 +17,7 @@
           <div class="col-sm-3 offset-sm-6 ">
             <b-button-group class="float-right" size="sm">
               <b-button variant="success" @click="onAdd()">添加</b-button>
-              <b-button variant="danger">删除</b-button>
+              <b-button variant="danger" @click="onRemove()">删除</b-button>
             </b-button-group>
           </div>
         </div>
@@ -107,7 +107,7 @@
 </template>
 
 <script>
-  import { get, put, encodeUrl } from '@/js/rest'
+  import { get, put, del, encodeUrl } from '@/js/rest'
   const url = '/api/video'
   export default {
     mounted () {
@@ -128,6 +128,16 @@
       }
     },
     methods: {
+      onRemove () {
+        return this.del(...this.multipleSelection.map((i) => i.id)).then(() => this.getVideos())
+      },
+      del (...ids) {
+        let promise = Promise.resolve()
+        for (let id = ids.shift(); id; id = ids.shift()) {
+          promise = promise.then(() => del(url + encodeUrl`/${id}`))
+        }
+        return promise
+      },
       save (id) {
         let data = {
           title: this.data.title,
@@ -165,6 +175,11 @@
       },
       handleSelectionChange (val) {
         this.multipleSelection = val
+      }
+    },
+    watch: {
+      currentPage (page) {
+        this.getVideos(page)
       }
     }
   }
