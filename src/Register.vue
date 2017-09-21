@@ -28,17 +28,18 @@
                 <input type="password" class="form-control" placeholder="确认密码" v-model.trim="repeat">
               </div>
 
-              <button type="button" class="btn btn-block btn-success" @click="register(phoneNum, code, password)">创建用户</button>
+
             </div>
             <div class="card-footer p-4">
-              <div class="row">
-                <div class="col-6">
-                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-                </div>
-                <div class="col-6">
-                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
-                </div>
-              </div>
+              <button type="button" class="btn btn-block btn-success" @click="register(phoneNum, code, password)">创建用户</button>
+              <!--<div class="row">-->
+                <!--<div class="col-6">-->
+                  <!--<button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>-->
+                <!--</div>-->
+                <!--<div class="col-6">-->
+                  <!--<button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>-->
+                <!--</div>-->
+              <!--</div>-->
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import 'scss/style.scss'
 
 import Vue from 'vue'
+import store from './store'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
@@ -20,6 +21,7 @@ Vue.prototype.$loading = Loading.service
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
 

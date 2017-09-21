@@ -26,6 +26,7 @@
   import Breadcrumb from './components/Breadcrumb'
   import cookie from '@/js/cookie'
   import {get} from '@/js/rest'
+  import {mapMutations} from 'vuex'
 
   export default {
     data () {
@@ -41,6 +42,7 @@
       }
       get('/api/user/').then((res) => {
         console.log(res)
+        this.setUser(res.data)
       },
       () => {
         cookie.remove('token')
@@ -51,6 +53,11 @@
       breadcrumb () {
         return this.$route.matched.filter((route) => route.meta && route.meta.menu)
       }
+    },
+    methods: {
+      ...mapMutations({
+        setUser: 'SET_USER'
+      })
     },
     components: {
       AppHeader, Sidebar, AppAside, AppFooter, Breadcrumb

@@ -2,17 +2,7 @@
   <div>
   <div class="card ">
     <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">企业管理</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">用户认证</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">企业用户</a>
-        </li>
-      </ul>
+      用户管理
     </div>
     <div class="card-block">
       <el-table
@@ -56,7 +46,7 @@
   </div>
   <b-modal :title="'ID: ' + userData.id" size="lg" class="modal-info" v-model="show" @ok="save(userData.id)">
       <div role="group" class="form-group row"><label class="col-form-label col-sm-2 text-right"><span>头像</span></label>
-        <div class="col-sm-9"><input type="text" :value="userData.avatar" placeholder="" class="form-control">
+        <div class="col-sm-9"><input type="text" v-model="userData.avatar" placeholder="" class="form-control">
 
         </div>
       </div>

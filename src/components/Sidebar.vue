@@ -2,13 +2,13 @@
   <div class="sidebar">
     <nav class="sidebar-nav">
       <ul class="nav">
-        <li class="nav-item">
-          <router-link :to="'/dashboard'" class="nav-link">
-            <i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span>
-          </router-link>
-        </li>
+        <!--<li class="nav-item">-->
+          <!--<router-link :to="'/dashboard'" class="nav-link">-->
+            <!--<i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span>-->
+          <!--</router-link>-->
+        <!--</li>-->
         <li class="nav-title text-center">
-          <span>UI Elements</span>
+          <span>主业务</span>
         </li>
         <li class="nav-item" :class="{'nav-dropdown': menu.children}" v-for="menu in menus" :key="menu.path" v-once>
           <div v-if="menu.children" class="nav-link nav-dropdown-toggle"
