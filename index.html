@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <link rel="icon" href="static/img/ic_logo_01.png" type="image/png" size="16x16">
     <link href="./static/css/simple-line-icons.css" rel="stylesheet">
-    <title>GMS</title>
+    <title><%=htmlWebpackPlugin.options.title.toUpperCase()%></title>
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+  <!-- <%=htmlWebpackPlugin.options.version%> -->
     <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>
+
