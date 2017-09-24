@@ -20,7 +20,7 @@
       <!--</b-nav-item>-->
       <b-nav-item-dropdown right style="margin-right: 1rem">
         <template slot="button-content">
-          <img :src="user.avatar" class="img-avatar" alt="">
+          <img :src="renderAvatar(user.avatar)" class="img-avatar" alt="">
           <span class="d-md-down-none">{{user.nickname}}</span>
         </template>
         <!--<b-dropdown-header tag="div" class="text-center"><strong>Account</strong></b-dropdown-header>-->
@@ -55,6 +55,9 @@ export default {
   methods: {
     click () {
       // do nothing
+    },
+    renderAvatar (img) {
+      return img && img.replace(/^img([1-9]|10)$/g, 'http://alibo.gvrcraft.com/img/$&.png')
     },
     sidebarToggle (e) {
       e.preventDefault()
