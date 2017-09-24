@@ -5,6 +5,16 @@
       用户管理
     </div>
     <div class="card-block">
+      <div class="row" style="margin-bottom: 1rem">
+        <div class="col-sm-3 ">
+          <b-input-group  size="sm">
+            <b-form-input v-model="filter" @keyup.enter.native="getUsers()"></b-form-input>
+            <b-input-group-button slot="right">
+              <b-btn variant="info" @click="getUsers()">Search</b-btn>
+            </b-input-group-button>
+          </b-input-group>
+        </div>
+      </div>
       <el-table
         v-loading="loading"
         ref="multipleTable"
@@ -13,17 +23,17 @@
         tooltip-effect="dark"
         style="width: 100%"
         @selection-change="handleSelectionChange">
-        <el-table-column
-          type="selection"
-          width="55">
-        </el-table-column>
+        <!--<el-table-column-->
+          <!--type="selection"-->
+          <!--width="55">-->
+        <!--</el-table-column>-->
         <el-table-column
           label="用户名"
           prop="nickname">
         </el-table-column>
         <el-table-column
-          prop="datetime"
-          label="注册日期"
+          prop="lastLogin"
+          label="登录日期"
           width="240">
         </el-table-column>
         <el-table-column
@@ -78,6 +88,7 @@
     },
     data () {
       return {
+        filter: null,
         show: false,
         loading: false,
         tableData: [],
@@ -121,7 +132,7 @@
       },
       getUsers (page = 1) {
         this.loading = true
-        return get('/api/users', {page}).then(({data}) => {
+        return get('/api/users', {page, filter: this.filter}).then(({data}) => {
           this.loading = false
           this.total = data.total
           this.tableData = data.users
@@ -133,6 +144,11 @@
       },
       handleSelectionChange (val) {
         this.multipleSelection = val
+      }
+    },
+    watch: {
+      currentPage (page) {
+        this.getUsers(page)
       }
     }
   }

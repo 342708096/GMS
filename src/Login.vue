@@ -14,7 +14,8 @@
                 </div>
                 <div class="input-group mb-4">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <input type="password" class="form-control" placeholder="密码" v-model.trim="password">
+                  <input type="password" class="form-control" placeholder="密码" v-model.trim="password"
+                         @keyup.enter="login(phoneNum, password)">
                 </div>
                 <div class="row">
                   <div class="col-6">

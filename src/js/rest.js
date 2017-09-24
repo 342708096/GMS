@@ -1,10 +1,10 @@
 import axios from 'axios'
 import cookie from './cookie'
 
-axios.defaults.baseURL = 'http://api.gvrcraft.com:8000'
+axios.defaults.baseURL = 'https://api.gvrcraft.com'
 
 function errHandle (res) {
-  if (res.code && res.code !== '') {
+  if (res.code && res.code !== '200') {
     throw res
   }
   return res

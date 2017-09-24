@@ -8,7 +8,7 @@
         <div class="row" style="margin-bottom: 1rem">
           <div class="col-sm-3 ">
             <b-input-group  size="sm">
-              <b-form-input v-model="filter"></b-form-input>
+              <b-form-input v-model="filter" @keyup.enter.native="getVideos()"></b-form-input>
               <b-input-group-button slot="right">
                 <b-btn variant="info" @click="getVideos()">Search</b-btn>
               </b-input-group-button>
@@ -17,7 +17,7 @@
           <div class="col-sm-3 offset-sm-6 ">
             <b-button-group class="float-right" size="sm">
               <b-button variant="success" @click="onAdd()">添加</b-button>
-              <b-button variant="danger" @click="onRemove()">删除</b-button>
+              <b-button variant="danger" @click="onRemove()" :disabled="!multipleSelection.length">删除</b-button>
             </b-button-group>
           </div>
         </div>
